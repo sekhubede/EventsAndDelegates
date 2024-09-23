@@ -6,21 +6,24 @@ namespace EvnetsAndDelegates.Services
 {
     public class VideoEncoderService
     {
-        public delegate void VideoEncoderEventHandler(object source, EventArgs args);
+        // Custom delegate
+        // public delegate void VideoEncoderEventHandler(object source, VideoEventArgsModel args);
 
-        public event VideoEncoderEventHandler VideoEncoded;
+        // Publishing an event without sending any additional data
+        // public event EventHandler VideoEncoding;
+        public event EventHandler<VideoEventArgsModel> VideoEncoded;
 
         public void Encode(VideoModel video)
         {
             WriteLine("Encoding Video...");
             Thread.Sleep(3000);
 
-            OnVideoEncoded();
+            OnVideoEncoded(video);
         }
 
-        protected virtual void OnVideoEncoded()
+        protected virtual void OnVideoEncoded(VideoModel video)
         {
-            VideoEncoded?.Invoke(this, EventArgs.Empty);
+            VideoEncoded?.Invoke(this, new VideoEventArgsModel(video));
         }
     }
 }
