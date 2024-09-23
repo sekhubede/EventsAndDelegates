@@ -1,3 +1,4 @@
+using EvnetsAndDelegates.Models;
 using static System.Console;
 
 namespace EvnetsAndDelegates.Services
@@ -9,9 +10,9 @@ namespace EvnetsAndDelegates.Services
             service.VideoEncoded += OnVideoEncoded;
         }
 
-        private void OnVideoEncoded(object source, EventArgs args)
+        private void OnVideoEncoded(object source, VideoEventArgsModel e)
         {
-            WriteLine("MessageService: Senidng message...");
+            WriteLine("MessageService: Senidng message...{0}", e.Video.Title);
         }
     }
 }
