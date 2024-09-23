@@ -1,3 +1,4 @@
+using EvnetsAndDelegates.Models;
 using static System.Console;
 
 namespace EvnetsAndDelegates.Services
@@ -9,9 +10,9 @@ namespace EvnetsAndDelegates.Services
             service.VideoEncoded += OnVideoEncoded;
         }
 
-        public void OnVideoEncoded(object source, EventArgs args)
+        public void OnVideoEncoded(object source, VideoEventArgsModel e)
         {
-            WriteLine("MailService: Sending an email...");
+            WriteLine("MailService: Sending an email...{0}", e.Video.Title);
         }
     }
 }
