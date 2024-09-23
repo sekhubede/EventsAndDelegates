@@ -35,4 +35,3 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Acknowledgments
 
 - Special thanks to Mosh for the excellent tutorial that helped me understand events and delegates in C#.
-
